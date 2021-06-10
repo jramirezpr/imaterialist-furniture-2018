@@ -17,7 +17,7 @@ class RunningMean:
     @property
     def value(self):
         if self.count:
-            return self.total_value / self.count
+            return torch.true_divide(self.total_value, self.count)
         else:
             return float("inf")
 

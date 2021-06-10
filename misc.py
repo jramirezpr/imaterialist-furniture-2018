@@ -39,6 +39,7 @@ class FurnitureDataset(Dataset):
     def __getitem__(self, idx):
         row = self.data.iloc[idx]
         img = Image.open(row['path'])
+        img = img.convert('RGB')
         if self.transform:
             img = self.transform(img)
         target = row['label_id'] - 1 if 'label_id' in row else -1
